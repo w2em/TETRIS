@@ -9,6 +9,15 @@ public class Board : MonoBehaviour
     public Vector3Int spawnPosition;
     public Vector2Int boardSize = new Vector2Int(10, 20);
 
+    public RectInt Bounds
+    {
+        get
+        {
+            Vector2Int position = new Vector2Int(-this.boardSize.x / 2, -this.boardSize.y / 2);
+            return new RectInt(position, this.boardSize);
+        }
+    }
+
     private void Awake()
     {
         this.tilemap = GetComponentInChildren<Tilemap>();
