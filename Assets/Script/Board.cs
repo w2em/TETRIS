@@ -7,6 +7,7 @@ public class Board : MonoBehaviour
     public Piece activePiece { get; private set; }
     public TetrominiData[] tetrominies;
     public Vector3Int spawnPosition;
+    public Vector2Int boardSize = new Vector2Int(10, 20);
 
     private void Awake()
     {
@@ -41,4 +42,19 @@ public class Board : MonoBehaviour
             this.tilemap.SetTile(tilePosition,piece.data.tile);
         }
     }
+
+    /*
+    public bool IsValidPosition(Piece piece, Vector3Int position)
+    {
+        for (int i = 0; i < piece.cells.Length; i++)
+        {
+            Vector3Int tilePosition = piece.cells[i] + position;
+
+            if (this.tilemap.HasTile(tilePosition))
+            {
+                return false;
+            }
+        }
+    }
+    */
 }
