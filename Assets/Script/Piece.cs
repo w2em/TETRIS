@@ -88,6 +88,38 @@ public class Piece : MonoBehaviour
 
     private void Rotate(int direction)
     {
+        this.rotationIndex += Wrap(rotationIndex + direction, 0, 4);
 
+        for (int i = 0; i < this.cells.Length; i++)
+        {
+            Vector3 cell = this.cells[i];
+
+            int x, y;
+
+            switch (this.data.tetromino)
+            {
+                case Tetromino.I:
+                case Tetromino.O:
+                    /*
+                    int x = (cell.x * Data.RotationMatrix[0] * direction) + (cell.y * Data.RotationMatrix[1] * direction);
+                    int x = (cell.x * Data.RotationMatrix[2] * direction) + (cell.y * Data.RotationMatrix[3] * direction);
+                    */
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private int Wrap(int input, int min, int max)
+    {
+        if (input < min)
+        {
+            return max - (min - input) % (max - min);
+        }
+        else
+        {
+            return min + (input - min) % (max - min);
+        }
     }
 }
