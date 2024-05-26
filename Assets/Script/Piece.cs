@@ -114,6 +114,13 @@ public class Piece : MonoBehaviour
         }
     }
 
+    /*
+    private bool TestWallKicks(int rotationInbex,int rotationDirection)
+    {
+
+    }
+    */
+
     private int Wrap(int input, int min, int max)
     {
         if (input < min)
