@@ -115,9 +115,14 @@ public class Piece : MonoBehaviour
     }
 
     /*
-    private bool TestWallKicks(int rotationInbex,int rotationDirection)
+    private bool TestWallKicks(int rotationIndex,int rotationDirection)
     {
+        int wallKickIndex = GetWallKickIndex(rotationIndex,rotationDirection);
+    }
 
+    private int GetWallKickIndex(int rotationIndex,int rotationDirection)
+    {
+        int wallKickIndex = rotationIndex * 2;
     }
     */
 
