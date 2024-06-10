@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Windows;
 
@@ -80,6 +81,13 @@ public class Piece : MonoBehaviour
     private void Step()
     {
         this.setpTime = Time.time + this.stepDelay;
+
+        Move(Vector2Int.down);
+
+        if (this.lockTime >= this.lockDelay)
+        {
+            Lock() ;
+        }
     }
 
     private void HardDrop()
@@ -88,6 +96,15 @@ public class Piece : MonoBehaviour
         {
             continue;
         }
+
+        Lock();
+    }
+
+    private void Lock()
+    {
+        this.board.Set(this);
+        this.board.ClearLines();
+        this.board.SpawnPiece();
     }
 
     private bool Move(Vector2Int translation)
