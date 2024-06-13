@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.Tilemaps;
 
 public class Board : MonoBehaviour
@@ -40,8 +41,21 @@ public class Board : MonoBehaviour
         int random = Random.Range(0, tetrominies.Length);
         TetrominiData data = this.tetrominies[random];
 
-        this.activePiece.Initialize(this,this.spawnPosition, data);
-        Set(this.activePiece);
+        this.activePiece.Initialize(this, this.spawnPosition, data);
+
+        if (IsValidPosition(this.activePiece, this.spawnPosition))
+        {
+            Set(this.activePiece);
+        }
+        else
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        this.tilemap.ClearAllTiles();
     }
 
     public void Set(Piece piece)
