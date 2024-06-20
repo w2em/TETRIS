@@ -1,7 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Windows;
-
 public class Piece : MonoBehaviour
 {
     public Board board { get; private set; }
