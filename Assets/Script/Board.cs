@@ -10,6 +10,8 @@ public class Board : MonoBehaviour
     public TetrominiData[] tetrominies;
     public Vector3Int spawnPosition;
     public Vector2Int boardSize = new Vector2Int(10, 20);
+    int random;
+    int[] tetomino = new int[2];
 
     public RectInt Bounds
     {
@@ -38,7 +40,11 @@ public class Board : MonoBehaviour
 
     public void SpawnPiece()
     {
-        int random = Random.Range(0, tetrominies.Length);
+        do {
+            random = Random.Range(0, tetrominies.Length);
+            tetomino[0] = tetomino[1];
+            tetomino[1] = random;
+        } while (!(random == tetomino[0]));
         TetrominiData data = this.tetrominies[random];
 
         this.activePiece.Initialize(this, this.spawnPosition, data);
