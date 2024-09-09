@@ -44,7 +44,7 @@ public class Board : MonoBehaviour
             random = Random.Range(0, tetrominies.Length);
             tetomino[0] = random;
             tetomino[1] = tetomino[0];
-        } while (!(random == tetomino[0]));
+        } while (!(random == tetomino[1]));
         TetrominiData data = this.tetrominies[random];
 
         this.activePiece.Initialize(this, this.spawnPosition, data);
