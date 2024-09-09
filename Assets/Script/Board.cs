@@ -42,8 +42,8 @@ public class Board : MonoBehaviour
     {
         do {
             random = Random.Range(0, tetrominies.Length);
-            tetomino[0] = tetomino[1];
-            tetomino[1] = random;
+            tetomino[0] = random;
+            tetomino[1] = tetomino[0];
         } while (!(random == tetomino[0]));
         TetrominiData data = this.tetrominies[random];
 
